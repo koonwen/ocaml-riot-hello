@@ -5,7 +5,7 @@ APPLICATION = ocaml
 BOARD ?= native
 
 # This has to be the absolute path to the RIOT base directory:
-RIOTBASE ?= $(CURDIR)/..
+RIOTBASE ?= $(CURDIR)/../RIOT
 
 # Comment this out to disable code in RIOT that does safety checking
 # which is not needed in a production environment but helps in the
@@ -37,7 +37,7 @@ CFLAGS := $(subst -Wold-style-definition,,$(CFLAGS))
 #
 OCAML_CFLAGS := $(CFLAGS)
 OCAML_LIBS := $(LINKFLAGS)
-RIOTBUILD_H_FILE := $(absolute bin/native/riotbuild/riotbuild.h)
+RIOTBUILD_H_FILE := $(CURDIR)/bin/native/riotbuild/riotbuild.h
 .PHONY: runtime
 runtime: $(RIOTBUILD_H_FILE)
 	CC="$(CC)" \

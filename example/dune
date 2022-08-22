@@ -1,6 +1,6 @@
 (executable
  (name main)
- (foreign_stubs (language c) (names stubs))
+ ;  (foreign_stubs (language c) (names stubs))
  (modes
   (byte c)))
 

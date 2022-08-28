@@ -15,6 +15,8 @@ DEVELHELP ?= 1
 # Change this to 0 show compiler invocation lines by default:
 QUIET ?= 0
 
+USEMODULE += stdin
+
 all: main.c runtime
 
 main.c: example/main.ml example/dune example/dune-project

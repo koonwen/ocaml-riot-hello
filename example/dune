@@ -3,16 +3,3 @@
  (libraries cstruct)
  (modes
   (byte c)))
-
-;(rule
-; (target main.c)
-; (deps main.bc.c)
-; (action
-;  (run ocamlclean -verbose %{deps} -o %{target})))
-
-;(rule
-; (target main.c)
-; (deps main.bc.c)
-; (action
-;  (run cp %{deps} %{target})))
-;

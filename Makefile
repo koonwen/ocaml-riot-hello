@@ -17,12 +17,12 @@ QUIET ?= 0
 
 USEMODULE += stdin
 
-all: main.c runtime
+all: runtime.bc.c runtimelib
 
-main.c: example/main.ml example/dune example/dune-project
+runtime.bc.c: example/main.ml example/dune example/dune-project
 	cd example && dune build
-	rm -f main.c
-	cp _build/default/example/main.bc.c ./main.c
+	rm -f runtime.bc.c
+	cp _build/default/example/main.bc.c ./runtime.bc.c
 
 include $(RIOTBASE)/Makefile.include
 #
@@ -40,8 +40,8 @@ CFLAGS := $(subst -Wold-style-definition,,$(CFLAGS))
 OCAML_CFLAGS := $(CFLAGS)
 OCAML_LIBS := $(LINKFLAGS)
 RIOTBUILD_H_FILE := $(CURDIR)/bin/native/riotbuild/riotbuild.h
-.PHONY: runtime
-runtime: $(RIOTBUILD_H_FILE)
+.PHONY: runtimelib
+runtimelib: $(RIOTBUILD_H_FILE)
 	CC="$(CC)" \
 	CFLAGS="" \
 	AS="$(AS)" \

@@ -19,10 +19,10 @@ USEMODULE += stdin
 
 all: runtime.bc.c runtimelib
 
-runtime.bc.c: example/main.ml example/dune example/dune-project
-	cd example && dune build
+runtime.bc.c: hello-world/main.ml hello-world/dune hello-world/dune-project
+	cd hello-world && dune build
 	rm -f runtime.bc.c
-	cp _build/default/example/main.bc.c ./runtime.bc.c
+	cp _build/default/hello-world/main.bc.c ./runtime.bc.c
 
 include $(RIOTBASE)/Makefile.include
 #
